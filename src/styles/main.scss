@@ -14,14 +14,14 @@ body {
   width: 60vw;
 }
 .question {
-  width: inherit;
+  width: 60vw;
   height: 10vh;
-  background-color: blue;
+  font-size: 3rem;
 }
 .choices {
-  width: inherit;
+  width: 60vw;
   height: 30vh;
-  background-color: red;
+  //background-color: red;
 }
 .button {
   text-decoration: none;
@@ -30,8 +30,6 @@ body {
   padding: 0.5rem;
   color: royalblue;
   transition: all 0.2s;
-  width: ;
-  height: 20%;
   &:hover {
     background-color: royalblue;
     color: white;
