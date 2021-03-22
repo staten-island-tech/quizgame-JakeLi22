@@ -1,3 +1,39 @@
+html {
+}
 body {
+  background: linear-gradient(#fc466b, #3f5efb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quiz-panel {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  height: 70vh;
+  width: 60vw;
+}
+.question {
+  width: inherit;
+  height: 10vh;
+  background-color: blue;
+}
+.choices {
+  width: inherit;
+  height: 30vh;
   background-color: red;
+}
+.button {
+  text-decoration: none;
+  border: 2px solid gray;
+  border-radius: 7px;
+  padding: 0.5rem;
+  color: royalblue;
+  transition: all 0.2s;
+  width: ;
+  height: 20%;
+  &:hover {
+    background-color: royalblue;
+    color: white;
+  }
 }
