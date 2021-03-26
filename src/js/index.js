@@ -12,7 +12,9 @@ const questions = [
 
 const title = document.querySelector("#title");
 
-title.textContent = "word";
+title.innerText = test;
+let test = "word";
+const test1 = ["jake", "Jake", "JAKE"];
 //now get the title to display first id of the array
 //function to display the text of the object by id
 //write a function that adds 1 to the id when you press the next button
