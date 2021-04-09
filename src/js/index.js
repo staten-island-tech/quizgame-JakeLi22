@@ -60,3 +60,4 @@ function choiceSelect() {}
 function scoreCalculator() {
   console.log("calculated");
 }
+
