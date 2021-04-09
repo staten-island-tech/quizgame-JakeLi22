@@ -1,0 +1,48 @@
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fc466b), to(#3f5efb));
+  background: linear-gradient(#fc466b, #3f5efb);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quiz-panel {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  height: 70vh;
+  width: 60vw;
+}
+
+.question {
+  width: 60vw;
+  height: 10vh;
+  font-size: 3rem;
+}
+
+.choices {
+  width: 60vw;
+  height: 30vh;
+}
+
+.button {
+  text-decoration: none;
+  border: 2px solid gray;
+  border-radius: 7px;
+  padding: 0.5rem;
+  color: royalblue;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  background-color: royalblue;
+  color: white;
+}
+/*# sourceMappingURL=main.css.map */

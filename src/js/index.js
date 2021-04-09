@@ -1,26 +1,7 @@
-//question array
-
-const quizQuestions = [
-  {
-    question: "question1?",
-    choices: ["choice1", "choice2", "choice3", "choice4"],
-    answer: 1,
-  },
-  {
-    question: "question2?",
-    choices: ["choice1", "choice2", "choice3", "choice4"],
-    answer: 1,
-  },
-];
-
 const quizTitle = document.getElementById("quiz-title");
 const startButton = document.getElementById("start-btn");
+const nextButton = document.getElementById("next-btn");
 const quizPanel = document.getElementById("quiz-panel");
-
-//now get the title to display first id of the array
-//function to display the text of the object by id
-//write a function that adds 1 to the id when you press the next button
-//listen for click event
 
 //start quiz
 
@@ -35,13 +16,29 @@ function startQuiz() {
 }
 //next question
 
-function nextQuestion() {}
+function nextQuestion() {
+  quizTitle.innerText = "test";
+}
 
 //make a quesion array
 
 //when you select an answer
-function choiceSelect() {}
+function choiceSelect() {
+  question: "when season were you born?";
+  answers: [
+    { text: "summer", correct: true },
+    { text: "winter", correct: false },
+  ];
+  question: "when month were you born?";
+  answers: [
+    { text: "june", correct: true },
+    { text: "july", correct: false },
+  ];
+  question: "when day were you born?";
+  answers: [
+    { text: "19", correct: true },
+    { text: "20", correct: false },
+  ];
+}
 
 //display question and answers
-quizTitle.innerText = test;
-let test = "woisd"; //doesn't work
