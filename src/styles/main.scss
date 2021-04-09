@@ -13,7 +13,7 @@ body {
   height: 70vh;
   width: 60vw;
 }
-.question {
+.question-title {
   width: 60vw;
   height: 10vh;
   font-size: 3rem;
@@ -34,4 +34,8 @@ body {
     background-color: royalblue;
     color: white;
   }
+}
+
+.hide {
+  display: none;
 }
