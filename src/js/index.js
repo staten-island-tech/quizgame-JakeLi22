@@ -2,7 +2,7 @@ const quizTitle = document.getElementById("quiz-title");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const quizPanel = document.getElementById("quiz-panel");
-const answerButtons = document.getElementsByClassName("choice");
+const answerButtonsDiv = document.getElementsByClassName("choices");
 const choices = [
   {
     question: "what season were you born?",
@@ -47,19 +47,20 @@ function nextQuestion() {
   const displayQuestion = choices[questionIndex];
   const result = displayQuestion.question;
   quizTitle.innerText = result; // displays the quesiton of the changing choice index
+  displayQuestion.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.classList.add("option");
+    button.addEventListener("click", choiceSelect);
+    answerButtonsDiv.appendChild(button);
+  });
   if (questionIndex === choices.length - 1) scoreCalculator(); //once the end of the sequence is reached start the score calculator function
-
-  /* displayQuestion.answers.forEach((answer) => {
-    const button = document.createElement("Buttons");
-    Buttons.innerText = answer.text;
-    Buttons.classList.add("button");
-    Buttons.addEventListener("click", choiceSelect);
-    answerButtons.appendChild(button);
-  }); */
 }
 
 //when you select an answer
-function choiceSelect() {}
+function choiceSelect() {
+  console.log("selected");
+}
 
 //display question and answers
 
