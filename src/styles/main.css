@@ -20,7 +20,7 @@ body {
   width: 60vw;
 }
 
-.question {
+.question-title {
   width: 60vw;
   height: 10vh;
   font-size: 3rem;
@@ -31,7 +31,7 @@ body {
   height: 30vh;
 }
 
-.button {
+.option {
   text-decoration: none;
   border: 2px solid gray;
   border-radius: 7px;
@@ -41,8 +41,12 @@ body {
   transition: all 0.2s;
 }
 
-.button:hover {
+.option:hover {
   background-color: royalblue;
   color: white;
+}
+
+.hide {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */
