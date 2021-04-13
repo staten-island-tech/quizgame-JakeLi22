@@ -2,7 +2,8 @@ const quizTitle = document.getElementById("quiz-title");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const quizPanel = document.getElementById("quiz-panel");
-const answerButtonsDiv = document.getElementsByClassName("choices");
+const answerButtonOne = document.getElementById("choice1");
+const answerButtonTwo = document.getElementById("choice2");
 const choices = [
   {
     question: "what season were you born?",
@@ -47,14 +48,12 @@ function nextQuestion() {
   const displayQuestion = choices[questionIndex];
   const result = displayQuestion.question;
   quizTitle.innerText = result; // displays the quesiton of the changing choice index
-  displayQuestion.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("option");
-    button.addEventListener("click", choiceSelect);
-    answerButtonsDiv.appendChild(button);
-  });
   if (questionIndex === choices.length - 1) scoreCalculator(); //once the end of the sequence is reached start the score calculator function
+  //choices.answers.forEach((choice) => console.log(choice.answers.text));
+  const choiceA = choices[questionIndex].answers[0].text;
+  const choiceB = choices[questionIndex].answers[1].text;
+  answerButtonOne.innerText = choiceA;
+  answerButtonTwo.innerText = choiceB;
 }
 
 //when you select an answer
