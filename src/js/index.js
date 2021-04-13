@@ -1,86 +1,7 @@
-DOMSelectors = {
-  quizTitle: document.getElementById("quiz-title"),
-  startButton: document.getElementById("start-btn"),
-  nextButton: document.getElementById("next-btn"),
-  doneButton: document.getElementById("done-btn"),
-  quizHider: document.getElementById("element-hider"),
-  scoreDisplay: document.getElementById("score"),
-  answerButtonOne: document.getElementById("choice1"),
-  answerButtonTwo: document.getElementById("choice2"),
-};
-const choices = [
-  {
-    question: "Rhino horns are made of keratin",
-    answers: [
-      { text: "true", correct: true },
-      { text: "false", correct: false },
-    ],
-  },
-  {
-    question: "Scorpions glow under UV light",
-    answers: [
-      { text: "true", correct: true },
-      { text: "false", correct: false },
-    ],
-  },
-  {
-    question: "Goats are cannibalistic",
-    answers: [
-      { text: "true", correct: false },
-      { text: "false", correct: true },
-    ],
-  },
-  {
-    question: "A squid has 12 tentacles",
-    answers: [
-      { text: "true", correct: false },
-      { text: "false", correct: true },
-    ],
-  },
-  {
-    question: "Jellyfish are a type of a fish",
-    answers: [
-      { text: "true", correct: false },
-      { text: "false", correct: true },
-    ],
-  },
-  {
-    question: "Tigers can swim",
-    answers: [
-      { text: "true", correct: true },
-      { text: "false", correct: false },
-    ],
-  },
-  {
-    question: "Tortoises can swim well",
-    answers: [
-      { text: "true", correct: false },
-      { text: "false", correct: true },
-    ],
-  },
-  {
-    question: "Platypuses lay eggs",
-    answers: [
-      { text: "true", correct: true },
-      { text: "false", correct: false },
-    ],
-  },
-  {
-    question: "Kangaroos have been known to drown their attackers",
-    answers: [
-      { text: "true", correct: true },
-      { text: "false", correct: false },
-    ],
-  },
-  {
-    question: "Burmese Pythos are native to Florida",
-    answers: [
-      { text: "true", correct: false },
-      { text: "false", correct: true },
-    ],
-  },
-];
+import { DOMSelectors } from "./Dom";
+import { choices } from "./menu";
 
+var firstQuestionIndex = 0;
 //start quiz
 
 DOMSelectors.startButton.addEventListener("click", startQuiz);
@@ -96,7 +17,7 @@ function startQuiz() {
   DOMSelectors.answerButtonOne.classList.remove("hide");
   DOMSelectors.answerButtonTwo.classList.remove("hide");
   DOMSelectors.nextButton.classList.remove("hide");
-  firstQuestionIndex = 0;
+
   nextQuestion();
 }
 //next question
@@ -112,15 +33,16 @@ function nextQuestion() {
   DOMSelectors.answerButtonOne.innerText = choiceA; //display answer 1
   DOMSelectors.answerButtonTwo.innerText = choiceB; //display answer 2
 }
-
+var i = 0;
 //when you select an answer
+/*
 function choiceSelect() {
   console.log("selected");
-  /*if (choices.answers.correct === true) {
-    i = 0;
+  if ((choices.answers.correct[0], choices.answers.correct[1] === true)) {
     const quizScore = i++; //not working
-  }*/
-}
+    console.log(quizScore);
+  }
+}*/
 
 //display question and answers
 
