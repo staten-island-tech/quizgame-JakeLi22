@@ -65,6 +65,10 @@ function nextQuestion() {
 //when you select an answer
 function choiceSelect() {
   console.log("selected");
+  if (choices.answers.correct === true) {
+    i = 0;
+    const quizScore = i++; //not working
+  }
 }
 
 //display question and answers
