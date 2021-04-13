@@ -1,7 +1,9 @@
 const quizTitle = document.getElementById("quiz-title");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
-//const quizPanel = document.getElementById("quiz-panel");
+const doneButton = document.getElementById("done-btn");
+const quizHider = document.getElementById("element-hider");
+const scoreDisplay = document.getElementById("score");
 const answerButtonOne = document.getElementById("choice1");
 const answerButtonTwo = document.getElementById("choice2");
 const choices = [
@@ -34,6 +36,7 @@ startButton.addEventListener("click", startQuiz);
 nextButton.addEventListener("click", nextQuestion);
 answerButtonOne.addEventListener("click", choiceSelect);
 answerButtonTwo.addEventListener("click", choiceSelect);
+doneButton.addEventListener("click", resetQuiz);
 
 function startQuiz() {
   console.log("started");
@@ -68,4 +71,11 @@ function choiceSelect() {
 
 function scoreCalculator() {
   console.log("calculated");
+  quizHider.classList.add("hide");
+  scoreDisplay.classList.remove("hide");
+  doneButton.classList.remove("hide");
+}
+
+function resetQuiz() {
+  location.reload();
 }
