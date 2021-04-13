@@ -1,7 +1,7 @@
 const quizTitle = document.getElementById("quiz-title");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
-const quizPanel = document.getElementById("quiz-panel");
+//const quizPanel = document.getElementById("quiz-panel");
 const answerButtonOne = document.getElementById("choice1");
 const answerButtonTwo = document.getElementById("choice2");
 const choices = [
@@ -32,12 +32,16 @@ const choices = [
 
 startButton.addEventListener("click", startQuiz);
 nextButton.addEventListener("click", nextQuestion);
+answerButtonOne.addEventListener("click", choiceSelect);
+answerButtonTwo.addEventListener("click", choiceSelect);
 
 function startQuiz() {
   console.log("started");
   startButton.classList.add("hide"); //to hide the element
   //have quiz panel hidden and remove "hide" in this function
-  quizPanel.classList.remove("hide");
+  answerButtonOne.classList.remove("hide");
+  answerButtonTwo.classList.remove("hide");
+  nextButton.classList.remove("hide");
   firstQuestionIndex = 0;
   nextQuestion();
 }
@@ -49,11 +53,10 @@ function nextQuestion() {
   const result = displayQuestion.question;
   quizTitle.innerText = result; // displays the quesiton of the changing choice index
   if (questionIndex === choices.length - 1) scoreCalculator(); //once the end of the sequence is reached start the score calculator function
-  //choices.answers.forEach((choice) => console.log(choice.answers.text));
   const choiceA = choices[questionIndex].answers[0].text;
-  const choiceB = choices[questionIndex].answers[1].text;
-  answerButtonOne.innerText = choiceA;
-  answerButtonTwo.innerText = choiceB;
+  const choiceB = choices[questionIndex].answers[1].text; //iterating answer 1 and 2
+  answerButtonOne.innerText = choiceA; //display answer 1
+  answerButtonTwo.innerText = choiceB; //display answer 2
 }
 
 //when you select an answer
