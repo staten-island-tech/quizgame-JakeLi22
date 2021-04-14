@@ -41,7 +41,7 @@ body {
   transition: all 0.2s;
 }
 
-.option:hover {
+.option:active {
   background-color: royalblue;
   color: white;
 }
