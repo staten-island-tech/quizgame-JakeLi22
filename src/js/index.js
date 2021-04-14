@@ -35,14 +35,11 @@ function nextQuestion() {
 }
 var i = 0;
 //when you select an answer
-/*
+
 function choiceSelect() {
   console.log("selected");
-  if ((choices.answers.correct[0], choices.answers.correct[1] === true)) {
-    const quizScore = i++; //not working
-    console.log(quizScore);
-  }
-}*/
+  // }
+}
 
 //display question and answers
 
