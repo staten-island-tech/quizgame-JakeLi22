@@ -33,16 +33,14 @@ function nextQuestion() {
   DOMSelectors.answerButtonOne.innerText = choiceA; //display answer 1
   DOMSelectors.answerButtonTwo.innerText = choiceB; //display answer 2
 }
-var i = 0;
-//when you select an answer
 
+//when you select an answer
 function choiceSelect() {
   console.log("selected");
-  // }
+  DOMSelectors.answerButtonOne.classList.add("clicked");
 }
 
 //display question and answers
-
 function scoreCalculator() {
   console.log("calculated");
   DOMSelectors.quizHider.classList.add("hide");
