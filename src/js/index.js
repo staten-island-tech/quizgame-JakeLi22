@@ -32,12 +32,14 @@ function nextQuestion() {
   const choiceB = choices[questionIndex].answers[1].text; //iterating answer 1 and 2
   DOMSelectors.answerButtonOne.innerText = choiceA; //display answer 1
   DOMSelectors.answerButtonTwo.innerText = choiceB; //display answer 2
+  DOMSelectors.answerButtonOne.classList.remove("clicked");
+  DOMSelectors.answerButtonTwo.classList.remove("clicked");
 }
 
 //when you select an answer
 function choiceSelect() {
-  console.log("selected");
-  DOMSelectors.answerButtonOne.classList.add("clicked");
+  DOMSelectors.answerButtonOne.onclick;
+  //figure out how to target the one you clicked on
 }
 
 //display question and answers
