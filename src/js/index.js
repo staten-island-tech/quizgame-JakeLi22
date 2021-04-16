@@ -1,15 +1,16 @@
 import { DOMSelectors } from "./Dom";
 import { choices } from "./menu";
 
-var firstQuestionIndex = 0;
-//start quiz
-
 DOMSelectors.startButton.addEventListener("click", startQuiz);
 DOMSelectors.nextButton.addEventListener("click", nextQuestion);
-DOMSelectors.answerButtonOne.addEventListener("click", choiceSelect);
-DOMSelectors.answerButtonTwo.addEventListener("click", choiceSelect);
+DOMSelectors.answerButtonOne.addEventListener("click", choiceSelectA);
+DOMSelectors.answerButtonTwo.addEventListener("click", choiceSelectB);
 DOMSelectors.doneButton.addEventListener("click", resetQuiz);
 
+let firstQuestionIndex = 0;
+let score = 0;
+
+//start quiz
 function startQuiz() {
   console.log("started");
   DOMSelectors.startButton.classList.add("hide"); //to hide the element
@@ -17,31 +18,34 @@ function startQuiz() {
   DOMSelectors.answerButtonOne.classList.remove("hide");
   DOMSelectors.answerButtonTwo.classList.remove("hide");
   DOMSelectors.nextButton.classList.remove("hide");
-
+  firstQuestionIndex = 0;
+  score = 0;
   nextQuestion();
 }
 //next question
 
 function nextQuestion() {
-  const questionIndex = firstQuestionIndex++; // add 1 to the first question index
-  const displayQuestion = choices[questionIndex];
+  firstQuestionIndex++; // add 1 to the first question index
+  const displayQuestion = choices[firstQuestionIndex];
   const result = displayQuestion.question;
   DOMSelectors.quizTitle.innerText = result; // displays the quesiton of the changing choice index
-  if (questionIndex === choices.length - 1) scoreCalculator(); //once the end of the sequence is reached start the score calculator function
-  const choiceA = choices[questionIndex].answers[0].text;
-  const choiceB = choices[questionIndex].answers[1].text; //iterating answer 1 and 2
+
+  const choiceA = displayQuestion.answers[0].text;
+  const choiceB = displayQuestion.answers[1].text; //iterating answer 1 and 2
   DOMSelectors.answerButtonOne.innerText = choiceA; //display answer 1
   DOMSelectors.answerButtonTwo.innerText = choiceB; //display answer 2
   DOMSelectors.answerButtonOne.classList.remove("clicked");
   DOMSelectors.answerButtonTwo.classList.remove("clicked");
+  if (firstQuestionIndex === choices.length - 1) scoreCalculator(); //once the end of the sequence is reached start the score calculator function
 }
 
 //when you select an answer
-function choiceSelect() {
-  DOMSelectors.answerButtonOne.onclick;
-  //figure out how to target the one you clicked on
+function choiceSelectA() {
+  DOMSelectors.answerButtonOne.classList.add("clicked");
 }
-
+function choiceSelectB() {
+  DOMSelectors.answerButtonTwo.classList.add("clicked");
+}
 //display question and answers
 function scoreCalculator() {
   console.log("calculated");
