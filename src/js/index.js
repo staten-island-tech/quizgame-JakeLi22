@@ -42,9 +42,21 @@ function nextQuestion() {
 //when you select an answer
 function choiceSelectA() {
   DOMSelectors.answerButtonOne.classList.add("clicked");
+  if (choices[firstQuestionIndex].answers[0].correct === true) {
+    score++;
+  } else {
+    score + 0;
+  }
+  console.log(score);
 }
 function choiceSelectB() {
   DOMSelectors.answerButtonTwo.classList.add("clicked");
+  if (choices[firstQuestionIndex].answers[1].correct === true) {
+    score++;
+  } else {
+    score + 0;
+  }
+  console.log(score);
 }
 //display question and answers
 function scoreCalculator() {
@@ -52,7 +64,7 @@ function scoreCalculator() {
   DOMSelectors.quizHider.classList.add("hide");
   DOMSelectors.scoreDisplay.classList.remove("hide");
   DOMSelectors.doneButton.classList.remove("hide");
-  //scoreDisplay.textContent += quizScore;
+  DOMSelectors.scoreDisplay.textContent += score;
 }
 
 function resetQuiz() {
