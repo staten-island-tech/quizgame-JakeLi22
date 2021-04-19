@@ -34,29 +34,28 @@ function nextQuestion() {
   const choiceB = displayQuestion.answers[1].text; //iterating answer 1 and 2
   DOMSelectors.answerButtonOne.innerText = choiceA; //display answer 1
   DOMSelectors.answerButtonTwo.innerText = choiceB; //display answer 2
-  DOMSelectors.answerButtonOne.classList.remove("clicked");
-  DOMSelectors.answerButtonTwo.classList.remove("clicked");
-  if (firstQuestionIndex === choices.length - 1) scoreCalculator(); //once the end of the sequence is reached start the score calculator function
+  DOMSelectors.answerButtonOne.classList.remove("clicked", "hide");
+  DOMSelectors.answerButtonTwo.classList.remove("clicked", "hide");
+
+  if (DOMSelectors.answerButtonOne.classList.contains("clicked")) {
+    console.log("hi");
+  } else if (DOMSelectors.answerButtonTwo.classList.contains("clicked")) {
+    console.log("hello");
+  }
+  //if element contains 'clicked' class, then check if it
+  if (firstQuestionIndex === choices.length - 1) scoreCalculator();
+  console.log(score); //once the end of the sequence is reached start the score calculator function
 }
 
 //when you select an answer
 function choiceSelectA() {
   DOMSelectors.answerButtonOne.classList.add("clicked");
-  if (choices[firstQuestionIndex].answers[0].correct === true) {
-    score++;
-  } else {
-    score + 0;
-  }
-  console.log(score);
+  DOMSelectors.answerButtonTwo.classList.add("hide");
+  console.log("selected A");
 }
 function choiceSelectB() {
   DOMSelectors.answerButtonTwo.classList.add("clicked");
-  if (choices[firstQuestionIndex].answers[1].correct === true) {
-    score++;
-  } else {
-    score + 0;
-  }
-  console.log(score);
+  DOMSelectors.answerButtonOne.classList.add("hide");
 }
 //display question and answers
 function scoreCalculator() {
