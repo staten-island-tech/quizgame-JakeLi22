@@ -47,7 +47,10 @@ function choiceSelectB() {
 //next question
 function nextQuestion() {
   timeLeft = 5000;
-  countDown();
+  clockTime = 5;
+
+  const countDownTimer = setInterval(countDown, 1000);
+
   firstQuestionIndex++; // add 1 to the first question index
   DOMSelectors.nextButton.classList.add("hide");
   const displayQuestion = choices[firstQuestionIndex];
@@ -87,17 +90,14 @@ function nextQuestion() {
   console.log(score); //once the end of the sequence is reached start the score calculator function
 }
 function countDown() {
-  clockTime = 5;
-  setInterval(function () {
-    //time is compounding
-    if (clockTime > 0) {
-      clockTime--;
-    } else {
-      clearInterval((clockTime = 0));
-    }
-    console.log(clockTime);
-    DOMSelectors.timer.innerText = clockTime;
-  }, 1000);
+  if (clockTime > 0) {
+    clockTime--;
+  } else {
+    clearInterval(countDownTimer);
+    clockTime = 0;
+  }
+  console.log(clockTime);
+  DOMSelectors.timer.innerText = clockTime;
 }
 
 //display question and answers
