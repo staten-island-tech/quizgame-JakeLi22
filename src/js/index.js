@@ -9,7 +9,15 @@ DOMSelectors.doneButton.addEventListener("click", resetQuiz);
 
 let firstQuestionIndex = 0;
 let score = 0;
+let timeLeft = 10000;
 
+/* // delay function
+function delay(ms = 0) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+ */
 //start quiz
 function startQuiz() {
   console.log("started");
@@ -22,30 +30,6 @@ function startQuiz() {
   score = 0;
   nextQuestion();
 }
-//next question
-
-function nextQuestion() {
-  firstQuestionIndex++; // add 1 to the first question index
-  const displayQuestion = choices[firstQuestionIndex];
-  const result = displayQuestion.question;
-  DOMSelectors.quizTitle.innerText = result; // displays the quesiton of the changing choice index
-
-  const choiceA = displayQuestion.answers[0].text;
-  const choiceB = displayQuestion.answers[1].text; //iterating answer 1 and 2
-  DOMSelectors.answerButtonOne.innerText = choiceA; //display answer 1
-  DOMSelectors.answerButtonTwo.innerText = choiceB; //display answer 2
-  DOMSelectors.answerButtonOne.classList.remove("clicked", "hide");
-  DOMSelectors.answerButtonTwo.classList.remove("clicked", "hide");
-
-  if (DOMSelectors.answerButtonOne.classList.contains("clicked")) {
-    console.log("hi");
-  } else if (DOMSelectors.answerButtonTwo.classList.contains("clicked")) {
-    console.log("hello");
-  }
-  //if element contains 'clicked' class, then check if it
-  if (firstQuestionIndex === choices.length - 1) scoreCalculator();
-  console.log(score); //once the end of the sequence is reached start the score calculator function
-}
 
 //when you select an answer
 function choiceSelectA() {
@@ -56,7 +40,52 @@ function choiceSelectA() {
 function choiceSelectB() {
   DOMSelectors.answerButtonTwo.classList.add("clicked");
   DOMSelectors.answerButtonOne.classList.add("hide");
+  console.log("selected B");
 }
+
+//next question
+function nextQuestion() {
+  timeLeft = 5000;
+
+  firstQuestionIndex++; // add 1 to the first question index
+  DOMSelectors.nextButton.classList.add("hide");
+  const displayQuestion = choices[firstQuestionIndex];
+  const result = displayQuestion.question;
+  DOMSelectors.quizTitle.innerText = result; // displays the quesiton of the changing choice index
+
+  const choiceA = displayQuestion.answers[0];
+  const choiceB = displayQuestion.answers[1]; //iterating answer 1 and 2
+  DOMSelectors.answerButtonOne.innerText = choiceA.text; //display answer 1
+  DOMSelectors.answerButtonTwo.innerText = choiceB.text; //display answer 2
+  DOMSelectors.answerButtonOne.classList.remove("clicked", "hide");
+  DOMSelectors.answerButtonTwo.classList.remove("clicked", "hide");
+
+  setTimeout(function () {
+    if (
+      DOMSelectors.answerButtonOne.classList.contains("clicked") &&
+      choiceA.correct === true
+    ) {
+      score++;
+      DOMSelectors.nextButton.classList.remove("hide");
+      //timeLeft = 0;
+    } else if (
+      DOMSelectors.answerButtonTwo.classList.contains("clicked") &&
+      choiceB.correct === true
+    ) {
+      score++;
+      DOMSelectors.nextButton.classList.remove("hide");
+      // timeLeft = 0;
+    } else {
+      console.log("nope");
+      DOMSelectors.nextButton.classList.remove("hide");
+    }
+  }, timeLeft);
+
+  //if element contains 'clicked' class, then check if it
+  if (firstQuestionIndex === choices.length - 1) scoreCalculator();
+  console.log(score); //once the end of the sequence is reached start the score calculator function
+}
+
 //display question and answers
 function scoreCalculator() {
   console.log("calculated");
