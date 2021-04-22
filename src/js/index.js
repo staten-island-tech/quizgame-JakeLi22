@@ -1,5 +1,5 @@
 import { DOMSelectors } from "./Dom";
-import { choices } from "./menu";
+import { choices } from "./questions";
 
 DOMSelectors.startButton.addEventListener("click", startQuiz);
 DOMSelectors.nextButton.addEventListener("click", nextQuestion);
@@ -47,7 +47,6 @@ function choiceSelectB() {
 //next question
 function nextQuestion() {
   timeLeft = 5000;
-  clockTime = 5;
   countDown();
   firstQuestionIndex++; // add 1 to the first question index
   DOMSelectors.nextButton.classList.add("hide");
@@ -88,6 +87,7 @@ function nextQuestion() {
   console.log(score); //once the end of the sequence is reached start the score calculator function
 }
 function countDown() {
+  clockTime = 5;
   setInterval(function () {
     //time is compounding
     if (clockTime > 0) {
