@@ -1,5 +1,3 @@
-html {
-}
 body {
   background: linear-gradient(#fc466b, #3f5efb);
   display: flex;
@@ -43,4 +41,22 @@ body {
 
 .hide {
   display: none;
+}
+
+.clock {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: royalblue;
+  position: absolute;
+  right: 20%;
+}
+
+.time {
+  color: white;
+  text-align: center;
+  font-size: 3.5rem;
+  display: block;
+  width: 100%;
+  padding-top: 0.5rem;
 }

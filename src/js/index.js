@@ -10,7 +10,7 @@ DOMSelectors.doneButton.addEventListener("click", resetQuiz);
 let firstQuestionIndex = 0;
 let score = 0;
 let timeLeft = 10000;
-
+let clockTime = 5;
 /* // delay function
 function delay(ms = 0) {
   return new Promise((resolve) => {
@@ -26,6 +26,7 @@ function startQuiz() {
   DOMSelectors.answerButtonOne.classList.remove("hide");
   DOMSelectors.answerButtonTwo.classList.remove("hide");
   DOMSelectors.nextButton.classList.remove("hide");
+  DOMSelectors.clockTimer.classList.remove("hide");
   firstQuestionIndex = 0;
   score = 0;
   nextQuestion();
@@ -46,7 +47,8 @@ function choiceSelectB() {
 //next question
 function nextQuestion() {
   timeLeft = 5000;
-
+  clockTime = 5;
+  countDown();
   firstQuestionIndex++; // add 1 to the first question index
   DOMSelectors.nextButton.classList.add("hide");
   const displayQuestion = choices[firstQuestionIndex];
@@ -84,6 +86,18 @@ function nextQuestion() {
   //if element contains 'clicked' class, then check if it
   if (firstQuestionIndex === choices.length - 1) scoreCalculator();
   console.log(score); //once the end of the sequence is reached start the score calculator function
+}
+function countDown() {
+  setInterval(function () {
+    //time is compounding
+    if (clockTime > 0) {
+      clockTime--;
+    } else {
+      clearInterval((clockTime = 0));
+    }
+    console.log(clockTime);
+    DOMSelectors.timer.innerText = clockTime;
+  }, 1000);
 }
 
 //display question and answers

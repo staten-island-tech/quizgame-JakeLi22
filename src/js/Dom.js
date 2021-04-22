@@ -7,5 +7,7 @@ const DOMSelectors = {
   scoreDisplay: document.getElementById("score"),
   answerButtonOne: document.getElementById("choice1"),
   answerButtonTwo: document.getElementById("choice2"),
+  timer: document.getElementById("timer"),
+  clockTimer: document.getElementById("clock"),
 };
 export { DOMSelectors };
