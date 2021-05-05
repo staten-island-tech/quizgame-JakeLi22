@@ -6,6 +6,7 @@ DOMSelectors.nextButton.addEventListener("click", nextQuestion);
 DOMSelectors.answerButtonOne.addEventListener("click", choiceSelectA);
 DOMSelectors.answerButtonTwo.addEventListener("click", choiceSelectB);
 DOMSelectors.doneButton.addEventListener("click", resetQuiz);
+//DOMSelectors.nextButton.addEventListener("click", countDown);
 
 let firstQuestionIndex = 0;
 let score = 0;
@@ -47,10 +48,8 @@ function choiceSelectB() {
 //next question
 function nextQuestion() {
   timeLeft = 5000;
-  clockTime = 5;
 
-  const countDownTimer = setInterval(countDown, 1000);
-
+  countDown();
   firstQuestionIndex++; // add 1 to the first question index
   DOMSelectors.nextButton.classList.add("hide");
   const displayQuestion = choices[firstQuestionIndex];
@@ -90,14 +89,15 @@ function nextQuestion() {
   console.log(score); //once the end of the sequence is reached start the score calculator function
 }
 function countDown() {
-  if (clockTime > 0) {
-    clockTime--;
-  } else {
-    clearInterval(countDownTimer);
-    clockTime = 0;
-  }
-  console.log(clockTime);
-  DOMSelectors.timer.innerText = clockTime;
+  var count = 5;
+  var interval = setInterval(function () {
+    DOMSelectors.timer.innerText = count;
+    count--;
+    if (count < 0) {
+      clearInterval(interval);
+      DOMSelectors.timer.innerText = "0";
+    }
+  }, 1000);
 }
 
 //display question and answers
