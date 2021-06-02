@@ -81,6 +81,8 @@ function nextQuestion() {
     } else {
       console.log("nope");
       DOMSelectors.nextButton.classList.remove("hide");
+      DOMSelectors.answerButtonOne.classList.add("hide");
+      DOMSelectors.answerButtonTwo.classList.add("hide");
     }
   }, timeLeft);
 
@@ -89,7 +91,7 @@ function nextQuestion() {
   console.log(score); //once the end of the sequence is reached start the score calculator function
 }
 function countDown() {
-  var count = 5;
+  var count = 4;
   var interval = setInterval(function () {
     DOMSelectors.timer.innerText = count;
     count--;

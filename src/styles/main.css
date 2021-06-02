@@ -41,12 +41,35 @@ body {
   transition: all 0.2s;
 }
 
-.option:active {
+.option:hover {
+  background-color: royalblue;
+  color: white;
+}
+
+.clicked {
   background-color: royalblue;
   color: white;
 }
 
 .hide {
   display: none;
+}
+
+.clock {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: royalblue;
+  position: absolute;
+  right: 20%;
+}
+
+.time {
+  color: white;
+  text-align: center;
+  font-size: 3.5rem;
+  display: block;
+  width: 100%;
+  padding-top: 0.5rem;
 }
 /*# sourceMappingURL=main.css.map */
